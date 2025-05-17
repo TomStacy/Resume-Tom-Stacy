@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      // Initialize theme on page load to prevent flash
+      (function() {
+        const storedTheme = localStorage.getItem('theme');
+        if (storedTheme === 'dark' || (!storedTheme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+      })();
+    </script>
+    <title>Executive Software Engineering Leader</title>
+    <meta name="description" content="Executive VP of Software Engineering with 25+ years experience in tech leadership and AI development" />
+    <meta name="author" content="Software Engineering EVP" />
+
+    <meta property="og:title" content="Executive Software Engineering Leader" />
+    <meta property="og:description" content="Executive VP of Software Engineering with 25+ years experience in tech leadership and AI development" />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@lovable_dev" />
+    <meta name="twitter:image" content="https://lovable.dev/opengraph-image-p98pqg.png" />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  </head>
+
+  <body>
+    <div id="root"></div>
+    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! 
+    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>-->
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
