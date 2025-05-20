@@ -73,3 +73,4 @@
 - Optimize for accessibility (WCAG compliance)
 - Use React Context for application state
 - Document all exported functions/components with JSDoc comments
+- Use the Context7 MCP tool to pull up to date documentation for any third party library or tool

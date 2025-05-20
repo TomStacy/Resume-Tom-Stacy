@@ -5,4 +5,10 @@
   background-position: center;
 }
 
+.fadeImage {
+  transition-property: opacity;
+  transition-timing-function: ease-in-out;
+  transition-duration: var(--fade-duration, 2000ms);
+}
+
 /* Dynamic background images will be added here */

@@ -36,29 +36,6 @@ const images: ImageType[] = [
   }
 ];
 
-// const images: ImageType[] = [
-//   {
-//     url: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?auto=format&fit=crop&q=80&w=2070",
-//     alt: "Golf course with beautiful scenery",
-//     title: "Golf Enthusiast"
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?auto=format&fit=crop&q=80&w=2070",
-//     alt: "Snow skiing on a mountain slope",
-//     title: "Snow Skiing"
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1600965962323-6556548533b5?auto=format&fit=crop&q=80&w=2070",
-//     alt: "Water skiing on a lake",
-//     title: "Water Skiing"
-//   },
-//   {
-//     url: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=2070",
-//     alt: "Fitness training with equipment",
-//     title: "Fitness"
-//   }
-// ];
-
 // Generate inline styles for each image
 const useImageStyles = (images: ImageType[]) => {
   return useMemo(() => {
@@ -72,7 +49,7 @@ const useImageStyles = (images: ImageType[]) => {
 };
 
 const DISPLAY_DURATION = 5000; // ms
-const FADE_DURATION = 10000; // ms
+const FADE_DURATION = 1000; // ms
 
 const Hero = () => {
   const imageStyles = useImageStyles(images);
@@ -102,7 +79,10 @@ const Hero = () => {
   }, [current]);
 
   return (
-    <div className="relative h-[350px] flex items-center overflow-hidden">
+    <div
+      className="relative h-[350px] flex items-end overflow-hidden"
+      style={{ '--fade-duration': `${FADE_DURATION}ms` } as React.CSSProperties}
+    >
       {/* Image Carousel */}
       <div className="absolute inset-0 w-full h-full">
         {images.map((image, idx) => {
@@ -128,7 +108,7 @@ const Hero = () => {
           return (
             <div
               key={idx}
-              className={`absolute inset-0 transition-opacity duration-[${FADE_DURATION}ms] ease-in-out ${opacity} ${z}`}
+              className={`absolute inset-0 ${styles.fadeImage} transition-opacity ease-in-out ${opacity} ${z}`}
               {...{
                 'aria-hidden': !isVisible
               } as React.HTMLAttributes<HTMLDivElement>}
@@ -144,12 +124,17 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container relative z-30 text-white">
-        <div className="max-w-lg">
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Software Engineering Executive</h1>
-          <h2 className="text-xl md:text-2xl">
-            25+ years of technical leadership, innovation, and AI advancement
+      <div className="container mx-auto px-6 pb-8 relative z-30 text-white">
+        <div className="max-w-2xl">
+          <h2 className="uppercase text-lg md:text-xl font-semibold tracking-wide mb-1 drop-shadow-lg">
+            HELLO, I'M TOM STACY
           </h2>
+          <p className="text-sm md:text-base font-light mb-4 drop-shadow">
+            Results Driven with a Passion for the Craft of Software Development.
+          </p>
+          <h1 className="text-2xl md:text-4xl font-extrabold mb-2 drop-shadow-2xl">
+            Architecture Analysis
+          </h1>
         </div>
       </div>
     </div>
