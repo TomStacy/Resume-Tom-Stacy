@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
 import { Menu, X } from 'lucide-react';
 import { ThemeToggle } from "@/components/ThemeToggle";
+import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -34,14 +35,14 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'bg-background/90 shadow-md backdrop-blur-sm' : 'bg-transparent'
+        scrolled ? 'scrolled bg-background/90 shadow-md backdrop-blur-sm' : 'bg-transparent'
       }`}
     >
-      <style>{`:root { --navbar-foreground: hsl(210, 40%, 98%); }`}</style>
+
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div>
-            {/* "Executive Engineer" text has been removed */}
+            <span className={`${styles.navbarLink} text-sm font-medium`}>TOM STACY</span>
           </div>
 
           {/* Desktop Navigation */}
@@ -50,8 +51,7 @@ const Navbar = () => {
               <a
                 key={link.name}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary`}
-                style={{ color: 'var(--navbar-foreground)' }}
+                className={`${styles.navbarLink} text-sm font-medium`}
                 onClick={(e) => {
                   e.preventDefault();
                   document.querySelector(link.href)?.scrollIntoView({
@@ -62,7 +62,7 @@ const Navbar = () => {
                 {link.name}
               </a>
             ))}
-            <span style={{ color: 'var(--navbar-foreground)' }}><ThemeToggle className="" /></span>
+            <span className={styles.themeToggle}><ThemeToggle /></span>
           </div>
 
           {/* Mobile menu button */}
@@ -71,7 +71,7 @@ const Navbar = () => {
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              style={{ color: 'var(--navbar-foreground)' }}
+              className={styles.themeToggle}
             >
               {mobileMenuOpen ? (
                 <X className="h-6 w-6" />
@@ -90,8 +90,7 @@ const Navbar = () => {
                 <a
                   key={link.name}
                   href={link.href}
-                  className="py-2 px-4 rounded hover:bg-muted"
-                  style={{ color: 'var(--navbar-foreground)' }}
+                  className={styles.mobileLink}
                   onClick={(e) => {
                     e.preventDefault();
                     document.querySelector(link.href)?.scrollIntoView({
@@ -104,7 +103,7 @@ const Navbar = () => {
                 </a>
               ))}
               <div className="py-2 px-4">
-                <span style={{ color: 'var(--navbar-foreground)' }}><ThemeToggle className="" /></span>
+                <span className={styles.mobileThemeToggle}><ThemeToggle /></span>
               </div>
             </div>
           </div>
