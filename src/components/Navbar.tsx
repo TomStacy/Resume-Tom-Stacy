@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Mail, Linkedin, Github } from 'lucide-react';
 import { ThemeToggle } from "@/components/ThemeToggle";
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,17 @@ const Navbar = () => {
     };
   }, []);
 
+  // Detect dark mode by checking html.dark
+  useEffect(() => {
+    const checkDark = () => {
+      setIsDarkMode(document.documentElement.classList.contains('dark'));
+    };
+    checkDark();
+    const observer = new MutationObserver(checkDark);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
+
   const navLinks = [
     { name: 'About', href: '#about' },
     { name: 'Experience', href: '#experience' },
@@ -35,14 +47,49 @@ const Navbar = () => {
   return (
     <nav
       className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        scrolled ? 'scrolled bg-background/90 shadow-md backdrop-blur-sm' : 'bg-transparent'
+        scrolled
+          ? `scrolled ${isDarkMode ? 'bg-background/95' : 'bg-white'} shadow-md backdrop-blur-sm`
+          : 'bg-transparent'
       }`}
     >
 
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div>
+          <div className="flex items-center space-x-4">
             <span className={`${styles.navbarLink} text-sm font-medium`}>TOM STACY</span>
+            <div className="mx-2 self-center h-5" style={{ width: 1, background: 'rgba(255,255,255,0.6)' }} />
+            {/* Social Icons */}
+            <div className="flex items-center space-x-2">
+              <a
+                href="mailto:tom.stacy@email.com"
+                className={styles.navbarLink}
+                aria-label="Email Tom Stacy"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Mail className="h-4 w-4" />
+              </a>
+              <div className="mx-2 self-center h-5" style={{ width: 1, background: 'rgba(255,255,255,0.6)' }} />
+              <a
+                href="https://www.linkedin.com/in/tomstacy"
+                className={styles.navbarLink}
+                aria-label="Tom Stacy on LinkedIn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
+              <div className="mx-2 self-center h-5" style={{ width: 1, background: 'rgba(255,255,255,0.6)' }} />
+              <a
+                href="https://github.com/tomstacy"
+                className={styles.navbarLink}
+                aria-label="Tom Stacy on GitHub"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Github className="h-4 w-4" />
+              </a>
+            </div>
           </div>
 
           {/* Desktop Navigation */}
@@ -84,8 +131,42 @@ const Navbar = () => {
 
         {/* Mobile menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden bg-background border-t mt-4 py-4 px-2 rounded-lg">
+          <div className="md:hidden bg-white border-t mt-4 py-4 px-2 rounded-lg">
             <div className="flex flex-col space-y-3">
+              {/* Social Icons for Mobile */}
+              <span className={`${styles.mobileLink} text-sm font-medium`}>TOM STACY</span>
+              <div className="mx-2 self-center h-5" style={{ width: 1, background: 'rgba(255,255,255,0.6)' }} />
+              <div className="flex items-center space-x-2">
+                <a
+                  href="mailto:tom.stacy@email.com"
+                  className={styles.mobileLink}
+                  aria-label="Email Tom Stacy"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Mail className="h-4 w-4" />
+                </a>
+                <div className="mx-2 self-center h-5" style={{ width: 1, background: 'rgba(255,255,255,0.6)' }} />
+                <a
+                  href="https://www.linkedin.com/in/tomstacy"
+                  className={styles.mobileLink}
+                  aria-label="Tom Stacy on LinkedIn"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Linkedin className="h-4 w-4" />
+                </a>
+                <div className="mx-2 self-center h-5" style={{ width: 1, background: 'rgba(255,255,255,0.6)' }} />
+                <a
+                  href="https://github.com/tomstacy"
+                  className={styles.mobileLink}
+                  aria-label="Tom Stacy on GitHub"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Github className="h-4 w-4" />
+                </a>
+              </div>
               {navLinks.map((link) => (
                 <a
                   key={link.name}

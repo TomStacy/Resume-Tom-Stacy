@@ -51,6 +51,15 @@ const useImageStyles = (images: ImageType[]) => {
 const DISPLAY_DURATION = 5000; // ms
 const FADE_DURATION = 1000; // ms
 
+const phrases = [
+  "AI Implementation Specialist",
+  "Architecture Analysis",
+  "Consulting Services",
+  "Cloud Solutions",
+  "Technical Leadership",
+  "Continuous Improvement"
+];
+
 const Hero = () => {
   const imageStyles = useImageStyles(images);
   const [current, setCurrent] = useState(0);
@@ -58,6 +67,8 @@ const Hero = () => {
   const [isFading, setIsFading] = useState(false);
   const fadeTimeout = useRef<NodeJS.Timeout | null>(null);
   const displayTimeout = useRef<NodeJS.Timeout | null>(null);
+  const [currentPhrase, setCurrentPhrase] = useState(0);
+  const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
     displayTimeout.current = setTimeout(() => {
@@ -77,6 +88,21 @@ const Hero = () => {
       if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
     };
   }, [current]);
+
+  // Add effect to cycle phrases independently
+  useEffect(() => {
+    const phraseInterval = setInterval(() => {
+      setCurrentPhrase((prev) => (prev + 1) % phrases.length);
+    }, 6000); // 6 seconds per phrase
+    return () => clearInterval(phraseInterval);
+  }, []);
+
+  // Add effect to trigger animation on phrase change
+  useEffect(() => {
+    setAnimate(true);
+    const timeout = setTimeout(() => setAnimate(false), 800); // match animation duration
+    return () => clearTimeout(timeout);
+  }, [currentPhrase]);
 
   return (
     <div
@@ -132,8 +158,11 @@ const Hero = () => {
           <p className="text-sm md:text-base font-light mb-4 drop-shadow">
             Results Driven with a Passion for the Craft of Software Development.
           </p>
-          <h1 className="text-2xl md:text-4xl font-extrabold mb-2 drop-shadow-2xl">
-            Architecture Analysis
+          <h1
+            className={`text-2xl md:text-4xl font-extrabold mb-2 drop-shadow-2xl ${animate ? styles.elasticSlideIn : ""}`}
+            key={currentPhrase}
+          >
+            {phrases[currentPhrase]}
           </h1>
         </div>
       </div>
