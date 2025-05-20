@@ -91,3 +91,30 @@ Access in your code:
 ```typescript
 const apiUrl = import.meta.env.VITE_API_URL;
 ```
+
+## Upgrading Dependencies
+
+To upgrade a dependency:
+
+```bash
+bun add [package-name]@latest
+```
+
+To upgrade all dependencies:
+
+```bash
+bun upgrade
+```
+
+## Testing Best Practices
+
+- Place test files in `__tests__/` folders within features
+- Name test files as `*.test.ts` or `*.test.tsx`
+- Use Bun's test runner for all tests
+- Use `@testing-library/react` for React component tests
+
+## Troubleshooting
+
+- If you encounter issues with the lockfile, try deleting `bun.lockb` and reinstalling dependencies
+- If Bun cache causes issues, run `bun cache clean`
+- For CLI errors, ensure Bun is up to date (`bun --version`)

@@ -7,20 +7,24 @@ project-root/
 ├── src/
 │   ├── assets/        # Project assets (images, fonts)
 │   ├── components/
-│   │   ├── ui/        # Shadcn/UI components
-│   │   └── common/    # Shared components
+│   │   ├── ui/        # Shadcn/UI components (auto-generated, do not edit directly)
+│   │   └── common/    # Shared project-specific components (not from Shadcn/UI)
 │   ├── features/      # Feature-based modules
 │   │   ├── auth/      # Authentication feature
 │   │   │   ├── components/
 │   │   │   ├── hooks/
 │   │   │   ├── services/
 │   │   │   ├── types/
+│   │   │   ├── __tests__/   # Unit/integration tests for this feature
+│   │   │   ├── mocks/      # Mocks for this feature
 │   │   │   └── index.ts
 │   │   └── users/     # User management feature
 │   │       ├── components/
 │   │       ├── hooks/
 │   │       ├── services/
 │   │       ├── types/
+│   │       ├── __tests__/
+│   │       ├── mocks/
 │   │       └── index.ts
 │   ├── hooks/         # Shared hooks
 │   ├── lib/           # Utilities and helpers
@@ -50,7 +54,11 @@ Each feature directory should contain:
 - `services/`: API services related to the feature
 - `types/`: TypeScript types for the feature
 - `utils/`: Utility functions for the feature
+- `__tests__/`: Unit/integration tests for the feature
+- `mocks/`: Test mocks for the feature
 - `index.ts`: Exports the public API of the feature
+
+> Keep feature folders even for single-file features for future scalability.
 
 ## Example Feature Directory
 
@@ -72,6 +80,10 @@ features/auth/
 ├── utils/
 │   ├── tokenUtils.ts
 │   └── index.ts
+├── __tests__/
+│   └── auth.test.ts
+├── mocks/
+│   └── auth.mock.ts
 └── index.ts
 
 ## Exports and Imports

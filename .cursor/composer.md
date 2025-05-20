@@ -58,3 +58,30 @@ To add Shadcn/UI components to the project:
 
 Example command for adding multiple components:
 `bunx shadcn-ui@latest add button card input form label`
+
+## Test Generation Prompt
+
+Use this prompt for generating tests:
+Create a test file for [COMPONENT_OR_HOOK] that covers the following scenarios:
+
+[SCENARIO_1_DESCRIPTION]
+[SCENARIO_2_DESCRIPTION]
+
+The test should:
+- Use Bun's test runner and/or @testing-library/react
+- Be placed in the appropriate __tests__ folder
+- Follow project conventions
+
+## Context Provider Generation Prompt
+
+Use this prompt for generating context providers:
+Create a context provider called [PROVIDER_NAME] that [DESCRIBE_FUNCTIONALITY].
+This provider should:
+- Accept [LIST_PROPS_OR_CONTEXT_VALUES]
+- Use React Context API
+- Be typed with TypeScript
+- Follow accessibility and project standards
+
+## Note
+
+All generated code must follow the rules and standards in `.cursor/rules.md`.

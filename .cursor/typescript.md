@@ -47,6 +47,9 @@ interface User {
 }
 
 // Use type for unions and complex types
+// Do NOT use 'type' for component props; always use 'interface' for props
+// Use type for unions, mapped types, and utility types only
+
 type UserRole = 'admin' | 'user' | 'guest';
 
 // Use Record for dictionaries
@@ -58,12 +61,16 @@ interface ApiResponse<T> {
   error?: string;
   status: number;
 }
+
+// Use utility types where appropriate
+// Examples: Partial<T>, Pick<T>, Omit<T>, Required<T>
 ```
 
 ### Component Props
 
 ```typescript
 // Component props with required and optional properties
+// Always use 'interface' for component props
 interface ButtonProps {
   // Required props
   children: React.ReactNode;
@@ -105,3 +112,5 @@ export type UserRole = 'admin' | 'user';
 // In a component
 import type { User, UserRole } from '@/types/user.types';
 ```
+
+// Use type-only imports (`import type { ... }`) for types wherever possible

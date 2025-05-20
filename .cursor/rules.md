@@ -17,6 +17,7 @@
 - Define component props with interfaces, not types
 - Use TypeScript paths with `@/` prefix for imports
 - Create a separate `types.ts` file for each feature module
+- Use type-only imports (`import type { ... }`) where possible
 
 ### React Components
 
@@ -26,6 +27,8 @@
 - Keep components focused and single-purpose
 - Use React hooks for state and side effects
 - Organize components by feature, not by type
+- Use semantic HTML elements where possible
+- Use `aria-` attributes and roles for accessibility as needed
 
 ### Styling
 
@@ -46,7 +49,9 @@
 
 - Group related components, hooks, and utilities by feature
 - Use index files to export from feature directories
-- Use a flat structure within feature directories
+- Use a flat structure within each feature directory (not the whole project)
+- Use PascalCase for component files, kebab-case for other files and folders
+- Keep feature folders even for single-file features for scalability
 
 ### Bun Package Manager
 
@@ -54,10 +59,17 @@
 - Configure scripts in package.json for common tasks
 - Take advantage of Bun's native TypeScript support
 
+### Testing
+
+- Use Bun's test runner for unit and integration tests
+- Place test files in `__tests__/` or `mocks/` folders within features
+- Use `@testing-library/react` for React component testing
+- Name test files as `*.test.ts(x)`
+
 ### Best Practices
 
 - Write clean, maintainable code
 - Follow the DRY (Don't Repeat Yourself) principle
 - Optimize for accessibility (WCAG compliance)
 - Use React Context for application state
-- Document complex logic with JSDoc comments
+- Document all exported functions/components with JSDoc comments

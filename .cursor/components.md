@@ -43,7 +43,7 @@ export function ComponentName({
 }
 ```
 
-## Alays use Shadcn/ui components when available
+## Always use Shadcn/UI components when available
 
 ```tsx
 import { Button } from "@/components/ui/button";
@@ -82,6 +82,24 @@ export function ExampleForm() {
   );
 }
 ```
+
+## Prop Naming Conventions
+
+- Use `onX` for callback props (e.g., `onClick`, `onSubmit`)
+- Use `isX` or `hasX` for boolean props (e.g., `isActive`, `hasError`)
+- Use clear, descriptive names for all props
+
+## Default Props and Destructuring
+
+- Use destructuring in function parameters for props
+- Provide default values for optional props where appropriate
+- Document all props with JSDoc comments
+
+## Accessibility
+
+- Use semantic HTML elements where possible
+- Add `aria-` attributes and roles as needed
+- Ensure keyboard navigation and screen reader support
 
 ## When using Radix UI primitives directly (for components not in Shadcn/UI)
 

@@ -147,3 +147,14 @@ export function ThemeToggle() {
   );
 }
 ```
+
+## Customizing and Updating Components
+
+- To customize a Shadcn/UI component, copy it to your project and modify as needed, or extend it with Tailwind classes.
+- Keep Shadcn/UI components up to date by running `bunx shadcn-ui@latest add [component-name]` again when updates are available.
+
+## Troubleshooting
+
+- If a component import fails, ensure it has been added with the CLI and exists in `src/components/ui`.
+- If styles are missing, check that `src/index.css` includes the Shadcn/UI and Tailwind imports.
+- If you encounter issues with the CLI, try deleting `node_modules`/`bun.lockb` and reinstalling dependencies.
