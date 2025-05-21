@@ -61,7 +61,7 @@ const Navbar = () => {
             {/* Social Icons */}
             <div className="flex items-center space-x-2">
               <a
-                href="mailto:tom.stacy@email.com"
+                href="mailto:tom@tomstacy.com"
                 className={styles.navbarLink}
                 aria-label="Email Tom Stacy"
                 target="_blank"
@@ -71,7 +71,7 @@ const Navbar = () => {
               </a>
               <div className="mx-2 self-center h-5" style={{ width: 1, background: 'rgba(255,255,255,0.6)' }} />
               <a
-                href="https://www.linkedin.com/in/tomstacy"
+                href="https://www.linkedin.com/in/tom-stacy"
                 className={styles.navbarLink}
                 aria-label="Tom Stacy on LinkedIn"
                 target="_blank"
