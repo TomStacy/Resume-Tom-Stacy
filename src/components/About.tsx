@@ -14,9 +14,9 @@ const About = () => {
           </div>
           <div className="w-20 h-1 bg-primary mt-2 mb-0"></div>
         </div>
-        <div className="grid md:grid-cols-4 gap-8 items-start">
+        <div className="grid md:grid-cols-4 gap-8 items-center">
           {/* Image: 25% */}
-          <div className="flex justify-center md:justify-end col-span-1">
+          <div className="flex justify-center items-center md:justify-end col-span-1">
             <img
               src="/images/Tom-Stacy-2.jpeg"
               alt="Tom Stacy portrait"
@@ -27,14 +27,14 @@ const About = () => {
           <div className="space-y-6 col-span-3">
             <h3 className="text-2xl font-bold text-primary mb-2">PROFESSIONAL PROFILE</h3>
             <p className="text-base md:text-lg font-light text-muted-foreground">
-              Results driven CTO, VP of Engineering, Consultant, and Technologist with over 25 years of software engineering 
-                and leadership experience.
-              Strong belief in empowerment and bringing people together to produce outcomes.
-              Expertise developing and managing all stages of the software development life cycle.
-              Strong technical knowledge of cloud, web, mobile, database, container, and CI/CD technologies.
-              Proven experience leading, designing, and delivering highly scalable solutions in the cloud.
-              Exceptional work ethic and a systems thinker with excellent technical, problem-solving, organizational, 
-                and communication skills.
+            Results-driven CTO, VP of Engineering, Consultant, and Technologist with over 25 years of software engineering 
+              and leadership experience.
+            Strong belief in empowerment and bringing people together to produce outcomes.
+            Expertise developing and managing all stages of the software development life cycle including AI adoption strategies.
+            Strong technical knowledge of cloud, web, mobile, database, container, CI/CD, and AI model training technologies.
+            Proven experience leading AI implementation approval processes and delivering highly scalable cloud solutions. 
+            Exceptional work ethic and a systems thinker with excellent technical, problem-solving, organizational, 
+              and communication skills in both traditional and AI-augmented environments.
             </p>
           </div>
         </div>
