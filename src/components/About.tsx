@@ -31,8 +31,9 @@ const About = () => {
               and leadership experience.
             Strong belief in empowerment and bringing people together to produce outcomes.
             Expertise developing and managing all stages of the software development life cycle including AI adoption strategies.
-            Strong technical knowledge of cloud, web, mobile, database, container, CI/CD, and AI model training technologies.
-            Proven experience leading AI implementation approval processes and delivering highly scalable cloud solutions. 
+            Strong technical knowledge of cloud, web, mobile, database, container, CI/CD, and AI technologies.
+            Proven experience leading AI adoption, approval, implementation, and trainigng. 
+            Documented Track Record of delivering highly scalable cloud solutions. 
             Exceptional work ethic and a systems thinker with excellent technical, problem-solving, organizational, 
               and communication skills in both traditional and AI-augmented environments.
             </p>
