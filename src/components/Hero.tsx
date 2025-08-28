@@ -53,7 +53,7 @@ const FADE_DURATION = 1000; // ms
 
 const phrases = [
   "AI Implementation Specialist",
-  "Architecture Analysis",
+  "Cloud and Software Architecture",
   "Consulting Services",
   "Cloud Solutions",
   "Technical Leadership",
