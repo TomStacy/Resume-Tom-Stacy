@@ -40,7 +40,7 @@ const Experience = () => {
       title: "Co-Founder, CTO",
       company: "Trovey - Denver, CO",
       period: "Nov 2017 - Mar 2018",
-      description: "Led multiple successful product launches with engineering excellence. Pioneered cloud migration strategy resulting in 40% cost reduction and improved system reliability.",
+      description: "Architected and built a scalable Azure-based SaaS platform that revolutionized document workflows for legal professionals, delivering seamless Office 365 integration and multi-platform accessibility while reducing document management time and enhancing collaboration.",
       bullets: [
         "Architected and delivered a SaaS platform for legal professionals on Azure, integrating Office 365 and multi-platform accessibility.",
         "Streamlined document workflows, reducing time spent on legal documentation while enhancing collaboration.",
@@ -52,7 +52,7 @@ const Experience = () => {
       title: "EVP of Engineering",
       company: "FrontSteps - Denver, CO",
       period: "Apr 2012 - Nov 2017",
-      description: "Led multiple successful product launches with engineering excellence. Pioneered cloud migration strategy resulting in 40% cost reduction and improved system reliability.",
+      description: "Led architecture and development of Azure based enterprise SaaS solutions serving multiple real estate sectors. Managed 50+ applications across 7 acquisitions while directing 6 cross-functional teams. The platform provided services to millions of end users and routinely processed over 1,000,000 dynamic page hits per day.",
       bullets: [
         "Scaled engineering org from 6 → 44 engineers across multiple acquisitions, establishing culture of engineering excellence and standardized practices.",
         "Led architecture and delivery of Azure-based SaaS platform supporting millions of daily users across real estate, property management, and security markets.",
