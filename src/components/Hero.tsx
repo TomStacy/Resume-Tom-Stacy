@@ -69,8 +69,11 @@ const Hero = () => {
   const displayTimeout = useRef<NodeJS.Timeout | null>(null);
   const [currentPhrase, setCurrentPhrase] = useState(0);
   const [animate, setAnimate] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   useEffect(() => {
+    if (isPaused) return; // Don't start new timers when paused
+
     displayTimeout.current = setTimeout(() => {
       const nextIdx = (current + 1) % images.length;
       setNext(nextIdx);
@@ -87,7 +90,7 @@ const Hero = () => {
       if (displayTimeout.current) clearTimeout(displayTimeout.current);
       if (fadeTimeout.current) clearTimeout(fadeTimeout.current);
     };
-  }, [current]);
+  }, [current, isPaused]);
 
   // Add effect to cycle phrases independently
   useEffect(() => {
@@ -108,6 +111,8 @@ const Hero = () => {
     <div
       className="relative h-[500px] flex items-end overflow-hidden"
       style={{ '--fade-duration': `${FADE_DURATION}ms` } as React.CSSProperties}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
       {/* Image Carousel */}
       <div className="absolute inset-0 w-full h-full">
