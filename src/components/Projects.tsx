@@ -60,13 +60,17 @@ const Projects = () => {
                 <Button 
                   variant="outline" 
                   size="sm" 
-                  className="w-full flex items-center justify-center gap-2"
+                  className={`w-full flex items-center justify-center gap-2 ${
+                    project.github 
+                      ? 'transition-all hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-md' 
+                      : ''
+                  }`}
                   {...(project.github && {
                     asChild: true
                   })}
                 >
                   {project.github ? (
-                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                    <a href={project.github} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
                       <Github className="h-4 w-4" />
                       View on GitHub
                     </a>
@@ -84,11 +88,14 @@ const Projects = () => {
         
         <div className="mt-12 text-center">
           <Button 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground transition-all hover:shadow-md"
             size="lg"
+            asChild
           >
-            <Github className="mr-2 h-4 w-4" />
-            View All GitHub Projects
+            <a href="https://github.com/TomStacy" target="_blank" rel="noopener noreferrer" className="flex items-center">
+              <Github className="mr-2 h-4 w-4" />
+              View All GitHub Projects
+            </a>
           </Button>
         </div>
       </div>

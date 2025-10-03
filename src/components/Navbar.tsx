@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Button } from "@/components/ui/button";
-import { Menu, X, Mail, Linkedin, Github } from 'lucide-react';
+import { Menu, X, Mail, Linkedin, Github, User, Code, Briefcase, FolderGit } from 'lucide-react';
 import { ThemeToggle } from "@/components/ThemeToggle";
 import styles from './Navbar.module.css';
 
@@ -36,10 +36,10 @@ const Navbar = () => {
   }, []);
 
   const navLinks = [
-    { name: 'About', href: '#about' },
-    { name: 'Skills', href: '#skills' },
-    { name: 'Experience', href: '#experience' },
-    { name: 'Projects', href: '#projects' },
+    { name: 'About', href: '#about', icon: User },
+    { name: 'Skills', href: '#skills', icon: Code },
+    { name: 'Experience', href: '#experience', icon: Briefcase },
+    { name: 'Projects', href: '#projects', icon: FolderGit },
     // { name: 'Blog', href: '#blog' },
     // { name: 'Contact', href: '#contact' }
   ];
@@ -94,21 +94,25 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center space-x-6">
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`${styles.navbarLink} text-sm font-medium`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.querySelector(link.href)?.scrollIntoView({
-                    behavior: 'smooth'
-                  });
-                }}
-              >
-                {link.name}
-              </a>
-            ))}
+            {navLinks.map((link) => {
+              const Icon = link.icon;
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`${styles.navbarLink} text-sm font-medium flex items-center gap-2`}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.querySelector(link.href)?.scrollIntoView({
+                      behavior: 'smooth'
+                    });
+                  }}
+                >
+                  <Icon className="h-4 w-4" />
+                  {link.name}
+                </a>
+              );
+            })}
             <span className={styles.themeToggle}><ThemeToggle /></span>
           </div>
 
@@ -167,22 +171,26 @@ const Navbar = () => {
                   <Github className="h-4 w-4" />
                 </a>
               </div>
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className={styles.mobileLink}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.querySelector(link.href)?.scrollIntoView({
-                      behavior: 'smooth'
-                    });
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  {link.name}
-                </a>
-              ))}
+              {navLinks.map((link) => {
+                const Icon = link.icon;
+                return (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className={`${styles.mobileLink} flex items-center gap-2`}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      document.querySelector(link.href)?.scrollIntoView({
+                        behavior: 'smooth'
+                      });
+                      setMobileMenuOpen(false);
+                    }}
+                  >
+                    <Icon className="h-4 w-4" />
+                    {link.name}
+                  </a>
+                );
+              })}
               <div className="py-2 px-4">
                 <span className={styles.mobileThemeToggle}><ThemeToggle /></span>
               </div>

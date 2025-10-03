@@ -1,51 +1,108 @@
 import React from 'react';
 import { Separator } from "@/components/ui/separator";
+import { Linkedin, Github, Mail, User, Briefcase, Code, FolderGit } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
   return (
-    <footer className="bg-background text-foreground py-12">
-      <div className="container mx-auto px-6">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <div className="text-2xl font-bold">Executive Engineer</div>
-            <div className="text-sm text-muted-foreground mt-1">Software Engineering Leadership</div>
-          </div>
-          
-          <div className="flex space-x-8">
-            <div>
-              <div className="font-semibold mb-2">Navigation</div>
-              <ul className="space-y-1 text-sm text-muted-foreground">
-                <li><a href="#about" className="hover:text-primary">About</a></li>
-                <li><a href="#experience" className="hover:text-primary">Experience</a></li>
-                <li><a href="#skills" className="hover:text-primary">Skills</a></li>
-                <li><a href="#projects" className="hover:text-primary">Projects</a></li>
-                <li><a href="#blog" className="hover:text-primary">Blog</a></li>
-              </ul>
+    <footer className="relative mt-8 border-t border-border/40">
+      {/* Subtle top accent */}
+      <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent"></div>
+      
+      <div className="bg-muted/30 backdrop-blur-sm">
+        <div className="container mx-auto px-8 md:px-12 lg:px-16 py-10">
+          <div className="flex flex-col md:flex-row justify-between items-start gap-8 mb-8">
+            <div className="max-w-md">
+              <div className="text-2xl font-bold tracking-tight mb-2">Tom Stacy</div>
+              <div className="text-lg font-medium text-muted-foreground mb-3">Executive Engineer</div>
+              <p className="text-sm text-muted-foreground/80 leading-relaxed">
+                Software Engineering Excellence through innovative solutions and technical leadership.
+              </p>
             </div>
             
-            <div>
-              <div className="font-semibold mb-2">Connect</div>
-              <ul className="space-y-1 text-sm text-muted-foreground">
-                <li><a href="#" className="hover:text-primary">LinkedIn</a></li>
-                <li><a href="#" className="hover:text-primary">GitHub</a></li>
-                <li><a href="#" className="hover:text-primary">Twitter</a></li>
-                <li><a href="#contact" className="hover:text-primary">Contact</a></li>
-              </ul>
+            <div className="flex gap-16 md:gap-20">
+              <div>
+                <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-foreground/90">Navigation</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <a href="#about" className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 hover:underline underline-offset-4 decoration-primary/50 flex items-center gap-2">
+                      <User className="h-4 w-4" />
+                      About
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#experience" className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 hover:underline underline-offset-4 decoration-primary/50 flex items-center gap-2">
+                      <Briefcase className="h-4 w-4" />
+                      Experience
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#skills" className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 hover:underline underline-offset-4 decoration-primary/50 flex items-center gap-2">
+                      <Code className="h-4 w-4" />
+                      Skills
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#projects" className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 hover:underline underline-offset-4 decoration-primary/50 flex items-center gap-2">
+                      <FolderGit className="h-4 w-4" />
+                      Projects
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              
+              <div>
+                <h3 className="font-semibold text-sm uppercase tracking-wider mb-4 text-foreground/90">Connect</h3>
+                <ul className="space-y-3">
+                  <li>
+                    <a 
+                      href="https://www.linkedin.com/in/tom-stacy" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 hover:underline underline-offset-4 decoration-primary/50 flex items-center gap-2"
+                    >
+                      <Linkedin className="h-4 w-4" />
+                      LinkedIn
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="https://github.com/TomStacy" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 hover:underline underline-offset-4 decoration-primary/50 flex items-center gap-2"
+                    >
+                      <Github className="h-4 w-4" />
+                      GitHub
+                    </a>
+                  </li>
+                  <li>
+                    <a 
+                      href="mailto:contactme@tomstacy.com" 
+                      className="text-sm text-muted-foreground hover:text-foreground transition-all duration-200 hover:underline underline-offset-4 decoration-primary/50 flex items-center gap-2"
+                    >
+                      <Mail className="h-4 w-4" />
+                      Email
+                    </a>
+                  </li>
+                </ul>
+              </div>
             </div>
           </div>
-        </div>
-        
-        <Separator className="my-8 bg-border" />
-        
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="text-sm text-muted-foreground">
-            &copy; {currentYear} Executive Engineer. All rights reserved.
-          </div>
           
-          <div className="text-sm text-muted-foreground mt-2 md:mt-0">
-            Design with expertise, build with excellence.
+          <Separator className="my-6 opacity-50" />
+          
+          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground/80">
+            <div>
+              &copy; {currentYear} Tom Stacy. All rights reserved.
+            </div>
+            
+            <div className="flex items-center gap-2">
+              <span>Built with</span>
+              <span className="text-primary">♦</span>
+              <span>React & TypeScript</span>
+            </div>
           </div>
         </div>
       </div>
