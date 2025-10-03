@@ -106,7 +106,7 @@ const Hero = () => {
 
   return (
     <div
-      className="relative h-[350px] flex items-end overflow-hidden"
+      className="relative h-[500px] flex items-end overflow-hidden"
       style={{ '--fade-duration': `${FADE_DURATION}ms` } as React.CSSProperties}
     >
       {/* Image Carousel */}
