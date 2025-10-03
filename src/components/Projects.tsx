@@ -38,7 +38,7 @@ const Projects = () => {
 
         <div className="grid md:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <Card key={index} className="hover:shadow-xl transition-all bg-card text-card-foreground">
+            <Card key={index} className="bg-card text-card-foreground">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-3 text-primary">
                   {project.title}
@@ -62,7 +62,7 @@ const Projects = () => {
                   size="sm" 
                   className={`w-full flex items-center justify-center gap-2 ${
                     project.github 
-                      ? 'transition-all hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-md' 
+                      ? 'transition-all hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-md hover:scale-105' 
                       : ''
                   }`}
                   {...(project.github && {
