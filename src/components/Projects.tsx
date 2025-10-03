@@ -6,22 +6,20 @@ import { Github } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: "AI Code Assistant",
-      description: "An AI-powered tool that helps developers write better code faster by providing intelligent suggestions and autocompletions.",
-      technologies: ["Python", "TensorFlow", "React", "Node.js"],
-      github: "https://github.com/username/ai-code-assistant"
+      title: "This Website!",
+      description: "A modern portfolio website built with AI assistance using cutting-edge web technologies for fast performance and beautiful design.",
+      technologies: ["React", "TypeScript", "Vite", "Tailwind", "shadcn"],
+      github: "https://github.com/TomStacy/Resume-Tom-Stacy"
     },
     {
       title: "Enterprise DevOps Platform",
       description: "A comprehensive platform that streamlines the software development lifecycle for enterprise teams, from code to deployment.",
-      technologies: ["Kubernetes", "Docker", "Go", "PostgreSQL"],
-      github: "https://github.com/username/devops-platform"
+      technologies: ["Kubernetes", "Docker", "Go", "PostgreSQL"]
     },
     {
       title: "Distributed Systems Framework",
-      description: "A robust framework for building scalable distributed systems that can handle high-throughput workloads.",
-      technologies: ["Java", "Spring Boot", "Kafka", "Redis"],
-      github: "https://github.com/username/distributed-framework"
+      description: "A robust framework for building scalable distributed systems that can handle high-throughput.",
+      technologies: ["Java", "Spring Boot", "Kafka", "Redis"]
     }
   ];
 
@@ -52,16 +50,32 @@ const Projects = () => {
                 <div className="mb-6">
                   <div className="flex flex-wrap gap-2">
                     {project.technologies.map((tech, i) => (
-                      <span key={i} className="bg-muted text-muted-foreground text-xs px-2 py-1 rounded">
+                      <span key={i} className="bg-muted text-muted-foreground text-xs py-1 rounded">
                         {tech}
                       </span>
                     ))}
                   </div>
                 </div>
                 
-                <Button variant="outline" size="sm" className="w-full flex items-center justify-center gap-2">
-                  <Github className="h-4 w-4" />
-                  View on GitHub
+                <Button 
+                  variant="outline" 
+                  size="sm" 
+                  className="w-full flex items-center justify-center gap-2"
+                  {...(project.github && {
+                    asChild: true
+                  })}
+                >
+                  {project.github ? (
+                    <a href={project.github} target="_blank" rel="noopener noreferrer">
+                      <Github className="h-4 w-4" />
+                      View on GitHub
+                    </a>
+                  ) : (
+                    <>
+                      <Github className="h-4 w-4" />
+                      View on GitHub
+                    </>
+                  )}
                 </Button>
               </CardContent>
             </Card>
