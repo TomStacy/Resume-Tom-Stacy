@@ -1,4 +1,5 @@
 import React from "react";
+import { Card, CardContent } from "@/components/ui/card";
 
 // Skill data as constants
 const skillsData = [
@@ -105,13 +106,15 @@ const SkillsSimple: React.FC = () => {
           </div>
           <div className="w-20 h-1 bg-primary mt-2 mb-0"></div>
         </div>
-        <div className="w-full p-6 bg-white rounded-lg shadow-md border-l-4 border-l-primary">
-          {skillsData.map((group) => (
-            <div key={group.title} className="mb-4">
-              <span className="font-bold">{group.title}:</span> {group.skills.join(", ")}
-            </div>
-          ))}
-        </div>
+        <Card className="overflow-hidden border-l-4 border-l-primary bg-card text-card-foreground">
+          <CardContent className="p-6">
+            {skillsData.map((group) => (
+              <div key={group.title} className="mb-4">
+                <span className="font-bold text-primary">{group.title}:</span> <span className="text-muted-foreground">{group.skills.join(", ")}</span>
+              </div>
+            ))}
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
