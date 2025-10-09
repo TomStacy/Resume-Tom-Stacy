@@ -1,13 +1,18 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { BarChart, TrendingUp, Rocket } from 'lucide-react';
+import { BarChart, TrendingUp, Rocket, ChevronDown, ChevronUp, Building2, Calendar } from 'lucide-react';
+import { useState } from 'react';
 
 const Experience = () => {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(0);
+
   const experiences = [
     {
       title: "VP of Engineering, Grid Services; Chief Engineer, Energy Technology",
-      company: "Generac Power Systems - Denver, CO",
+      company: "Generac Power Systems",
+      location: "Denver, CO",
       period: "Jun 2021 - May 2025",
-      description: "Led development of enterprise IoT platform connecting 10,000+ Distributed Energy Resources (DERs) in closed-loop environments, enabling energy providers to optimize distribution and generation for grid load balancing. ",
+      duration: "4 years",
+      description: "Led development of enterprise IoT platform connecting 10,000+ Distributed Energy Resources (DERs) in closed-loop environments, enabling energy providers to optimize distribution and generation for grid load balancing.",
       bullets: [
         "Acted as CTO-level leader for strategic accounts, partnering with utility executives to define technical vision, align outcomes, and drive grid modernization strategies.",
         "Architected and delivered a scalable event-driven IoT platform connecting 10,000+ Distributed Energy Resources (DERs), processing millions of daily telemetry events for real-time grid load balancing.",
@@ -18,12 +23,15 @@ const Experience = () => {
         "Optimized cloud spend, saving $350K annually through comprehensive tagging, scheduling, auditing, and infrastructure standardization.",
         "Owned full Day-2 operations for Generac Grid Services, including observability, incident response, security hardening, compliance, scaling, resilience, and cost optimization—embedding DevSecOps into production delivery."
       ],
-      icon: <Rocket className="h-8 w-8 text-blue-500" />
+      icon: <Rocket className="h-6 w-6" />,
+      color: "blue"
     },
     {
       title: "VP of Engineering; VP of Technical Strategy & Architecture",
-      company: "Alteryx - Broomfield, CO",
+      company: "Alteryx",
+      location: "Broomfield, CO",
       period: "Mar 2018 - Apr 2021",
+      duration: "3 years",
       description: "Led engineering for Alteryx's data analytics platform - a desktop application with server-based collaboration enabling business users to version, share, and schedule analytical workflows. Drove company-wide Agile, DevOps, and program management transformation while leading migration of an on-premises server solution to a multi-tenant cloud architecture.",
       bullets: [
         "Acted as executive engineering leader and trusted technical advisor, driving company-wide Agile, DevOps, and program management transformations across 30+ teams.",
@@ -34,24 +42,30 @@ const Experience = () => {
         "Served as executive sponsor for customer-facing workshops and technical diligence, presenting to enterprise clients and supporting sales with architectural credibility.",
         "Mentored engineering directors, managers and developers, creating leadership pathways and improving retention and morale across global teams."
       ],
-      icon: <TrendingUp className="h-8 w-8 text-purple-500" />
+      icon: <TrendingUp className="h-6 w-6" />,
+      color: "purple"
     },
     {
       title: "Co-Founder, CTO",
-      company: "Trovey - Denver, CO",
+      company: "Trovey",
+      location: "Denver, CO",
       period: "Nov 2017 - Mar 2018",
+      duration: "5 months",
       description: "Architected and built a scalable Azure-based SaaS platform that revolutionized document workflows for legal professionals, delivering seamless Office 365 integration and multi-platform accessibility while reducing document management time and enhancing collaboration.",
       bullets: [
         "Architected and delivered a SaaS platform for legal professionals on Azure, integrating Office 365 and multi-platform accessibility.",
         "Streamlined document workflows, reducing time spent on legal documentation while enhancing collaboration.",
         "Built the technical foundation for scale and secured initial customer traction."
       ],
-      icon: <BarChart className="h-8 w-8 text-green-500" />
+      icon: <BarChart className="h-6 w-6" />,
+      color: "emerald"
     },
     {
       title: "EVP of Engineering",
-      company: "FrontSteps - Denver, CO",
+      company: "FrontSteps",
+      location: "Denver, CO",
       period: "Apr 2012 - Nov 2017",
+      duration: "5.5 years",
       description: "Led architecture and development of Azure based enterprise SaaS solutions serving multiple real estate sectors. Managed 50+ applications across 7 acquisitions while directing 6 cross-functional teams. The platform provided services to millions of end users and routinely processed over 1,000,000 dynamic page hits per day.",
       bullets: [
         "Scaled engineering org from 6 → 44 engineers across multiple acquisitions, establishing culture of engineering excellence and standardized practices.",
@@ -62,12 +76,15 @@ const Experience = () => {
         "Oversaw technical diligence for M&A and post-acquisition integrations, ensuring seamless platform scaling.",
         "Introduced DevOps, CI/CD, and Agile practices across 6 cross-functional teams, boosting productivity and delivery consistency."
       ],
-      icon: <BarChart className="h-8 w-8 text-green-500" />
+      icon: <Building2 className="h-6 w-6" />,
+      color: "amber"
     },
     {
       title: "Co-Founder, CTO",
-      company: "Group Software Technologies - Denver, CO",
+      company: "Group Software Technologies",
+      location: "Denver, CO",
       period: "Apr 1997 - Apr 2012",
+      duration: "15 years",
       description: "Led multiple successful product launches with engineering excellence. Pioneered cloud migration strategy resulting in 40% cost reduction and improved system reliability.",
       bullets: [
         "Founded and grew a consulting and custom software firm from 2 → 12 employees, delivering solutions to startups through Fortune 500s.",
@@ -75,9 +92,57 @@ const Experience = () => {
         "Specialized in rescue projects and platform launches, earning a reputation for delivering under pressure.",
         "Acted as trusted advisor to client executives, aligning engineering execution with business outcomes."
       ],
-      icon: <BarChart className="h-8 w-8 text-green-500" />
+      icon: <BarChart className="h-6 w-6" />,
+      color: "rose"
     }
   ];
+
+  const colorClasses = {
+    blue: {
+      icon: "text-blue-600 dark:text-blue-400",
+      bg: "bg-blue-50 dark:bg-blue-950/30",
+      border: "border-blue-200 dark:border-blue-800",
+      hover: "hover:border-blue-400 dark:hover:border-blue-600",
+      dot: "bg-blue-500",
+      gradient: "from-blue-500/10 to-transparent"
+    },
+    purple: {
+      icon: "text-purple-600 dark:text-purple-400",
+      bg: "bg-purple-50 dark:bg-purple-950/30",
+      border: "border-purple-200 dark:border-purple-800",
+      hover: "hover:border-purple-400 dark:hover:border-purple-600",
+      dot: "bg-purple-500",
+      gradient: "from-purple-500/10 to-transparent"
+    },
+    emerald: {
+      icon: "text-emerald-600 dark:text-emerald-400",
+      bg: "bg-emerald-50 dark:bg-emerald-950/30",
+      border: "border-emerald-200 dark:border-emerald-800",
+      hover: "hover:border-emerald-400 dark:hover:border-emerald-600",
+      dot: "bg-emerald-500",
+      gradient: "from-emerald-500/10 to-transparent"
+    },
+    amber: {
+      icon: "text-amber-600 dark:text-amber-400",
+      bg: "bg-amber-50 dark:bg-amber-950/30",
+      border: "border-amber-200 dark:border-amber-800",
+      hover: "hover:border-amber-400 dark:hover:border-amber-600",
+      dot: "bg-amber-500",
+      gradient: "from-amber-500/10 to-transparent"
+    },
+    rose: {
+      icon: "text-rose-600 dark:text-rose-400",
+      bg: "bg-rose-50 dark:bg-rose-950/30",
+      border: "border-rose-200 dark:border-rose-800",
+      hover: "hover:border-rose-400 dark:hover:border-rose-600",
+      dot: "bg-rose-500",
+      gradient: "from-rose-500/10 to-transparent"
+    }
+  };
+
+  const toggleExpanded = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
 
   return (
     <section id="experience" className="section bg-background">
@@ -86,57 +151,109 @@ const Experience = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-primary">
             Professional Experience
           </h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            25+ years of technical leadership driving innovation, scaling teams, and delivering enterprise solutions
+          </p>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
         </div>
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <Card key={index} className="overflow-hidden border-l-4 border-l-primary bg-card text-card-foreground">
-              <CardContent className="p-0">
-                <div className="flex flex-col md:flex-row">
-                  {/* <div className="flex items-center justify-center bg-muted p-6 md:p-8">
-                    <div className="bg-background p-4 rounded-full shadow-md">
-                      {exp.icon}
-                    </div>
-                  </div> */}
-                  
-                  <div className="p-6 md:p-8 flex-1">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-primary">
-                          {exp.title}
-                        </h3>
-                        <p className="text-muted-foreground">{exp.company}</p>
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-8 md:left-12 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-primary/50 to-transparent"></div>
+
+          <div className="space-y-8 md:space-y-12">
+            {experiences.map((exp, index) => {
+              const isExpanded = expandedIndex === index;
+              const colors = colorClasses[exp.color as keyof typeof colorClasses];
+              
+              return (
+                <div key={index} className="relative">
+                  <Card 
+                    className="group overflow-hidden border-2 transition-all duration-300 border-border hover:border-primary/50 bg-gradient-to-b from-muted/30 to-background backdrop-blur-sm cursor-pointer"
+                    onClick={() => toggleExpanded(index)}
+                  >
+                    <CardContent className="p-0">
+                      <div className="p-6 md:p-8">
+                        {/* Header */}
+                        <div className="flex items-start gap-4 mb-4">
+                          <div className="flex-1 min-w-0">
+                            <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-2 mb-2">
+                              <h3 className="text-lg md:text-xl font-bold text-foreground leading-tight pr-4">
+                                {exp.title}
+                              </h3>
+                              <div className="flex items-center gap-2 text-sm text-muted-foreground flex-shrink-0">
+                                <Calendar className="h-4 w-4" />
+                                <span className="font-medium">{exp.duration}</span>
+                              </div>
+                            </div>
+                            
+                            <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-muted-foreground mb-3">
+                              <div className="flex items-center gap-1.5">
+                                <Building2 className="h-4 w-4" />
+                                <span className="font-medium">{exp.company}</span>
+                              </div>
+                              <span className="text-muted-foreground/50">•</span>
+                              <span>{exp.location}</span>
+                              <span className="text-muted-foreground/50">•</span>
+                              <span className="text-xs">{exp.period}</span>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Description */}
+                        <p className="text-foreground/90 leading-relaxed mb-4">
+                          {exp.description}
+                        </p>
+
+                        {/* Expand/Collapse indicator */}
+                        <div className="flex items-center gap-2 text-sm font-medium text-primary mb-2">
+                          <span>{isExpanded ? 'Hide' : 'Show'} key achievements</span>
+                          {isExpanded ? (
+                            <ChevronUp className="h-4 w-4" />
+                          ) : (
+                            <ChevronDown className="h-4 w-4" />
+                          )}
+                        </div>
+
+                        {/* Expandable bullets */}
+                        <div 
+                          className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                            isExpanded ? 'max-h-[2000px] opacity-100' : 'max-h-0 opacity-0'
+                          }`}
+                        >
+                          {exp.bullets && exp.bullets.length > 0 && (
+                            <div className="pt-4 border-t border-border">
+                              <ul className="space-y-3 pl-1">
+                                {exp.bullets.map((bullet, bidx) => (
+                                  <li 
+                                    key={bidx} 
+                                    className="flex gap-3 text-sm text-muted-foreground leading-relaxed"
+                                    style={{ animationDelay: `${bidx * 50}ms` }}
+                                  >
+                                    <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-foreground/70 mt-1.5 ring-1 ring-foreground/20"></span>
+                                    <span className="flex-1">{bullet}</span>
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
                       </div>
-                      <div className="mt-2 md:mt-0">
-                        <span className="inline-block px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">
-                          {exp.period}
-                        </span>
-                      </div>
-                    </div>
-                    <p className="text-foreground">
-                        <span className="block text-justify">{exp.description}</span>
-                    </p>
-                      {exp.bullets && (
-                        <ul className="mt-4 ml-6 space-y-2 text-justify">
-                          {exp.bullets.map((bullet, bidx) => (
-                            <li key={bidx} className="list-disc ml-4 text-base text-muted-foreground">
-                              {bullet}
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                  </div>
+                    </CardContent>
+                  </Card>
                 </div>
-              </CardContent>
-            </Card>
-          ))}
+              );
+            })}
+          </div>
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground italic">
-            Note: This represents key positions from a 25+ year career in tech leadership
-          </p>
+        <div className="mt-16 text-center">
+          <div className="inline-flex items-center gap-3 px-6 py-3 rounded-lg bg-muted/50 backdrop-blur-sm">
+            <div className="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+            <p className="text-sm text-muted-foreground italic">
+              25+ years of technical leadership • 5 companies • Countless innovations
+            </p>
+          </div>
         </div>
       </div>
     </section>

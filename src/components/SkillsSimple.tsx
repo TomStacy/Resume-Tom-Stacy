@@ -106,7 +106,7 @@ const SkillsSimple: React.FC = () => {
           </div>
           <div className="w-20 h-1 bg-primary mt-2 mb-0"></div>
         </div>
-        <Card className="overflow-hidden border-l-4 border-l-primary bg-card text-card-foreground">
+        <Card className="overflow-hidden border-2 transition-all duration-300 border-border hover:border-primary/50 bg-gradient-to-b from-muted/30 to-background backdrop-blur-sm">
           <CardContent className="p-6">
             {skillsData.map((group) => (
               <div key={group.title} className="mb-4">

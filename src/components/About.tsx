@@ -28,8 +28,7 @@ const About = () => {
             <h3 className="text-2xl font-bold text-primary mb-2">PROFESSIONAL PROFILE</h3>
             <p className="text-base md:text-lg font-light text-muted-foreground">
             Results-driven CTO, VP of Engineering, Consultant, and Technologist with over 25 years of software engineering 
-              and leadership experience.
-            Strong belief in empowerment and bringing people together to produce outcomes.
+            and leadership experience. Strong belief in empowerment and bringing people together to produce outcomes.
             Expertise developing and managing all stages of the software development life cycle including AI adoption strategies.
             Strong technical knowledge of cloud, web, mobile, database, container, CI/CD, and AI technologies.
             Proven experience leading AI adoption, approval, implementation, and trainigng. 

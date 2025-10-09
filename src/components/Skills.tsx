@@ -147,31 +147,24 @@ const Skills = () => {
         </div>
         <div className="space-y-8">
           {[leadershipData, technologyData, technicalSkillsData].map((data, index) => (
-            <Card key={index} className="overflow-hidden border-l-4 border-l-primary bg-card text-card-foreground">
-              <CardContent className="p-0">
-                <div className="flex flex-col md:flex-row">
-                  {/* Icon removed for cleaner layout */}
-                  <div className="p-6 md:p-8 flex-1">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                      <div>
-                        <h3 className="text-xl font-bold text-primary">
-                          {data.title}
-                        </h3>
-                      </div>
+            <Card key={index} className="overflow-hidden border-2 transition-all duration-300 border-border hover:border-primary/50 bg-gradient-to-b from-muted/30 to-background backdrop-blur-sm">
+              <CardContent className="p-6 md:p-8">
+                <div className="mb-4">
+                  <h3 className="text-xl font-bold text-primary">
+                    {data.title}
+                  </h3>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  {data.subtopics.map((sub, i) => (
+                    <div key={i}>
+                      <div className="font-semibold text-lg mb-2 text-primary/90">{sub.title}</div>
+                      <ul className="list-disc list-inside ml-4 text-foreground/90">
+                        {sub.bullets.map((b, j) => (
+                          <li key={j} className="mb-1">{b}</li>
+                        ))}
+                      </ul>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                      {data.subtopics.map((sub, i) => (
-                        <div key={i}>
-                          <div className="font-semibold text-lg mb-2 text-primary/90">{sub.title}</div>
-                          <ul className="list-disc list-inside ml-4 text-card-foreground/90">
-                            {sub.bullets.map((b, j) => (
-                              <li key={j} className="mb-1">{b}</li>
-                            ))}
-                          </ul>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </CardContent>
             </Card>
