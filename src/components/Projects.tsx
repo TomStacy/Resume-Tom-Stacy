@@ -6,7 +6,7 @@ import { Github } from 'lucide-react';
 const Projects = () => {
   const projects = [
     {
-      title: "This Website!",
+      title: "This Website",
       description: "A modern portfolio website built with AI assistance using cutting-edge web technologies for fast performance and beautiful design.",
       technologies: ["React", "TypeScript", "Vite", "Tailwind", "shadcn"],
       github: "https://github.com/TomStacy/Resume-Tom-Stacy"
@@ -29,11 +29,11 @@ const Projects = () => {
       <div className="container-tight">
         <div className="space-y-4 mb-16 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-primary">
-            Notable Projects
+            Hobby Projects
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            A selection of key technical projects I've contributed to or led. These represent my hands-on technical expertise and passion for innovation.
+            A selection of projects I've developed. These represent my hands-on technical expertise and passion for innovation.
           </p>
         </div>
 
