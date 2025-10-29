@@ -2,13 +2,17 @@
 
 This is the source code for Tom Stacy's personal portfolio website, built with modern web technologies.
 
+## Deployment
+
+Hosted on Cloudflare Pages with automatic CI/CD - every git push to main triggers an instant global deployment. Free tier includes SSL, unlimited bandwidth, and edge caching across 200+ data centers worldwide.
+
 ## Technologies Used
 
 This project is built with:
 
 - **Vite** - Fast build tool and development server
 - **TypeScript** - Type-safe JavaScript
-- **React** - UI component library
+- **React** - Declarative, component-based library for building reactive user interfaces
 - **shadcn-ui** - Beautifully designed components
 - **Tailwind CSS** - Utility-first CSS framework
 
@@ -55,13 +59,13 @@ The development server will start with auto-reloading and an instant preview, ty
 - `/public` - Static assets
 - `/src/components/ui` - shadcn-ui components
 
-## Deployment
+## Deployment Alternateives
 
-This project can be deployed to any static hosting service such as:
+Although this project is deployed on Cloudflare, this project can be deployed to any static hosting service such as:
+
 - GitHub Pages
 - Vercel
 - Netlify
-- Cloudflare Pages
 
 ## License
 
